@@ -1,0 +1,25 @@
+body{
+	margin: 0px;
+	/*font-family: 'Lucida Grande', "微軟正黑體", cursive;*/
+}
+
+button, input, textarea {
+	border: 1px solid #CCCCCC;
+	outline: none;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"]{
+	background-color: #333333;
+	color: #FFFFFF;
+	border: none;
+	border-radius: 10px;
+}
+
+button:active, html input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active{
+	background-color: #111111;
+	color: #CCCCCC;
+	-webkit-transform: scale(0.95);
+}
+a{
+	color: hotpink;;
+}

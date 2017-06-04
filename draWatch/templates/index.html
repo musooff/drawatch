@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link href="../static/css/index.css" rel="stylesheet">
+<link href="../static/css/infoVideo.css" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+<div id="mainmenu">
+	<div class="space"></div>
+	<div class="menubox">
+		<h2>Create New Room</h2><br>
+		<img src="../static/images/add.png"></img>
+		<input id="videoURL" placeholder='Copy-and-Paste a Youtube video URL'></input><br>
+		<button id="createbtn">Create</button><br>
+		<br><br>
+		<!-- Enter a Youtube video URL to create a CoCoKUA room. Then share the room URL to invite your friends and enjoy. -->
+	</div>
+	<div class="bubble">
+		<p class="bubble" type='p'>Welcome to CoCoKUA. Login and press "Go" button then you will enter the room !</p>
+		<img class="bubble" type='img' src="../static/images/text_bubble.png"></img>
+	</div>
+
+	<div class="space"></div>
+	<div class="menubox">
+		<h2>Go Into Room</h2><br>
+		<img src="../static/images/goin.png"></img>
+		<input id="roomURL" placeholder='Enter the video room URL that your friends share with you'></input><br>
+		<button id="gobtn">Go</button><br>
+		<br><br>
+		<!-- Enter the video room URL that your friends share with you. Then watch video and chat with your friends. -->
+	</div>
+<!-- 
+	<div class="space"></div>
+	<div class="menubox">
+		<h2>Record List</h2><br>
+		You don't have any record...<br>
+		<br><br>
+		<button id="viewbtn">View More</button><br>
+		<br><br>
+		You can view the video you have seen before and manage them.
+	</div>
+	<div class="space"></div>
+</div>
+<div id="information">
+	<div class='gray-block'>
+		<p id="information-title">Create your video room without even copy-and-paste</p>
+		<img src='../static/images/youtube_message.png'></img>
+		<p>After you find a video, add 'lets' in the video url before 'youtube' and hit enter</br></p>
+	</div>
+	<div id="display-holder">
+		<p id="information-title">CoCoKUA let you and your friends enjoy a video while playing on it !</p>
+		<div class="display">
+			<div class="slide1"><img class='display-img' src='../static/images/display1.png'></img></div>
+			<div class="slide2" style="background-color: #1B998B"><div class='display-info'>CoCoKUA make sure everyone in the watch room share the same plot without delation. And playback controls are synchronized ,too!</div></div>
+		</div>
+		<div class="display">
+			<div class="slide1"><img class='display-img' src='../static/images/display3.png'></img></div>
+			<div class="slide2" style="background-color: #CE5401">
+				<div class='display-info'>We offer many kinds of annotation tools to satisfy all your needs.</div>
+				<div class="slide_open" id="infovideobtn">
+					<img src='../static/images/play_button.png'></img>
+					<p style='color:white'>Watch more about CoCoKUA</p>
+				</div>
+			</div>
+		</div>
+		<div class="display">
+			<div class="slide1"><img class='display-img' src='../static/images/display2.png'></img></div>
+			<div class="slide2" style="background-color: #1C852F"><div class='display-info'>Now you have new way to communicate with other co-watchers with video annotation. You can show your idea just on the video and all the other watchers will get it immediately, at the certain place.</div></div>
+		</div>
+		
+	</div>
+</div>
+<div id="foot">
+		<p>Develpoed by NTHU cocokua team. <a href="../PrivacyPolicy/"> Privacy Policy </a></p>
+		<p><a href="mailto:cocokua2016@gmail.com?Subject=Hi cocokua team" target="_top">Contact us </a>if there is any suggestion or question.</p>
+</div> -->
+<!-- Video Lightbox -->
+<div id="slide" class="well">
+	<div id="infoPlayer">
+	</div>
+</div> 
+{% endblock %}
+
+{% block script %}
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="../static/js/cookie.js"></script>
+<script src="../static/js/login.js"></script>
+<script src="../static/js/govideoroom.js"></script>
+<script src="../static/js/jquery.popupoverlay.js"></script>
+<script src="../static/js/infoVideo.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="../static/sweetalert/sweetalert.min.js"></script> 
+<script src="../static/js/index_slider.js"></script> 
+<script src='../static/js/invited_home.js'></script>
+{% endblock %}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<link href="../static/css/normalize.css" rel="stylesheet">
+		<link href="../static/css/style.css" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Comfortaa:400,700,300' rel='stylesheet' type='text/css'>
+		<link href="../static/css/header.css" rel="stylesheet">
+		{% block css %}{% endblock %}
+		<link href="../static/sweetalert/sweetalert.css" rel="stylesheet">
+		
+		<!-- <link rel="shortcut icon" href="../static/images/cocokua_icon2.png"/>
+		<title>CoCoKUA</title>
+		<meta property="og:title" content="CoCoKUA" />
+		<meta property="og:url" content="http://www.letsyoutube.com/" />
+		<meta property="og:image" content="../static/images/cocokua_icon2_1024.png" />
+		<meta property="og:description" content="Let's watch the Youtube video together!" /> -->
+	</head>
+	<body>
+		<header>
+			<!-- <a id="appTitle" href="/">
+				<img id = 'logo' src = "../static/images/cocokua_icon2.png" width="40" height="40"> 
+				CoCoKUA
+			</a>
+			 --><div id="userBar">
+				<div id="userState">
+					<div id="userName">Log In</div>
+					<img id="unfoldArrow" src="../static/images/arrow.png">
+					<img id="userPhoto" src="../static/images/fb_icon.png">
+				</div>
+				<div id="hidden_option">
+					<ul>
+						<li id="logout">Log out</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		
+		<main>
+			{% block main %}{% endblock %}
+		</main>
+	</body>
+	{% block script %}{% endblock %}
+</html>

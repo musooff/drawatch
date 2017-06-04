@@ -1,0 +1,49 @@
+#chatwindow{
+	background-color: #FFFFFF;
+	box-sizing: border-box;
+	height: 590px;
+	width: 340px;
+	display: inline-block;
+	padding: 10px;
+	border: 1px solid #CCCCCC;
+	border-radius: 10px;
+}
+#textbox {
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	box-sizing: border-box;
+	height: 500px;
+	padding: 5px;
+	overflow: auto;
+}
+#inputbox{
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	box-sizing: border-box;
+	display: inline-block;
+	width: 318px;
+	height: 52px;
+}
+#msgtextarea {
+	float: right;
+	border: none;
+	height: 50px;
+	width:  260px;
+	box-sizing: border-box;
+	padding: 5px 5px 5px 3px;
+}
+#sendbutton{
+	float: right;
+	width: 52px;
+	height: 50px;
+	padding: 5px;
+	border-radius: 3px;
+}
+.message{
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	margin: 5px;
+	padding: 5px;
+	border-radius: 8px;
+	word-wrap: break-word;
+}

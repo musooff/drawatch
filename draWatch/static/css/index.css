@@ -1,0 +1,150 @@
+#mainmenu{
+	/*display:table;*/
+	margin: 2.5% 0%;
+	text-align: center;
+	width: 100%;
+}
+.menubox{
+	display:inline-block;
+	width: 40%;
+	padding: 15px 20px 20px 20px;
+	box-sizing: border-box;
+	text-align: center;
+}
+.space{
+	display:inline-block;
+	width: 2.5%;
+}
+.menubox input{
+	width: 80%;
+	padding: 5px 8px;
+	margin: 10px 0px;
+	border: 1px thin #CCCCCC;
+	border-radius: 5px;
+}
+.menubox button{
+	min-width: 100px;
+	padding: 5px 20px;
+	border-radius: 5px;
+}
+
+#information{
+	width: 100%;
+	text-align: center;
+	font-family: Sans-serif;
+}
+#information-title{
+	font-size: 20px;
+	color: #777777;
+}
+.infobox{
+	margin: 2.5%;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 10px;
+	text-align: center;
+	height:200px;
+}
+
+#display-holder{
+	text-align: center;
+	width:100%;
+}
+.display{
+	position: relative;
+	display: inline-block;
+	width: 300px;
+	height: 300px;
+	margin: 50px;
+}
+.slide1{
+	position:absolute;
+	top:0px;
+	height: 300px;
+	width: 300px;
+}
+.slide1 img{
+	width: 300px;
+	height: 300px;
+}
+.slide2{
+	display: none;
+	z-index: 2;
+	position:absolute;
+	top:0px;
+	height: 300px;
+	width:300px;
+
+}
+.display-info{
+	color: white;
+	padding: 30px;
+	line-height: 1.8;
+}
+#infovideobtn{
+	width: 300px;
+}
+#infovideobtn img{
+	width:50px;
+}
+#foot{
+	height: 160px;
+	color: white;
+	text-align: center;
+	background-color: #222222;
+	padding: 10px;
+}
+.img-circle{
+	width: 80px;
+	border: solid;
+	border-color: #FFFFFF;
+	border-radius: 50%;
+	margin:5px 10px;
+}
+.bubble{
+	display: none;
+	position: fixed;
+	top: 50px;
+	right:10px;
+	z-index: 1;
+	width:250px;
+}
+.bubble[type='img']{
+	width:250px;
+	z-index: 1;
+}
+.bubble[type='p']{
+	color: black;
+	z-index: 2;
+	width:200px;
+	padding: 25px;
+}
+.gray-block{
+	background-color: #EEEEEE;
+	padding: 20px;
+}
+@media only screen and (max-width: 480px){
+	#mainmenu{
+		display: block;
+		width: 100%;
+		margin: 0%;
+	}
+	.menubox{
+		display: block;
+		width: 90%;
+		margin: 5%
+	}
+	.space{
+		display: block;
+	}
+	.infobox{
+		margin: 5%;
+	}
+	.img-circle{
+		width: 60px;
+		border: solid;
+		border-color: #FFFFFF;
+		border-radius: 50%;
+		margin:0px 5px;
+	}	
+}

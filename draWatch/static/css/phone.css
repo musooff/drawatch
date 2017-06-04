@@ -1,0 +1,25 @@
+#draggable{
+ width: 240px;
+ height: 180px; 
+ z-index: 10000; 
+}
+#draggable-me {
+ width: 240px;
+ height: 180px; 
+ z-index: 10000; 
+}
+.video-display{
+ 	height: 180px; 
+    text-align: center;
+    color: #eee;
+    font-size: 150px;
+}
+video{
+	width: 240px;
+}
+#call-option{
+	position: absolute;
+	width: 400px;
+	top:40px;
+	left:200px;
+}

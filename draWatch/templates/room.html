@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link href="../static/css/room.css" rel="stylesheet">
+<link href="../static/css/chatwindow.css" rel="stylesheet">
+<link href="../static/css/canvas.css" rel="stylesheet">
+<link href="../static/css/switch.css" rel="stylesheet">
+<link href="../static/css/phone.css" rel="stylesheet">
+<link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../static/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block main %}
+<!-- Video and Audio Chat -->
+
+<div id="left">
+	<div class='container'>
+		<!-- <div class='row'>
+			<button type="button" class="btn btn-primary" id='phone-on' data-toggle="modal" data-target="#myModal">
+				<span class='glyphicon glyphicon-earphone'></span> Open My Phone</button>
+			<button type="button" class="btn btn-danger" id='phone-off' style='display:none'>Close My Phone</button>
+			<button type="button" class="btn btn-success" id='call' style='display:none'>Call My Freinds</button>
+		</div> -->
+	</div>
+	<div id="canvas">		
+		<!-- Painting Tools -->
+		<div id='wrapper'>
+			<table id="option1">
+				<tr><td><img id="marker" class="toolimg" src="../static/images/img/brush.png"  value="marker" alt="Brush" title="Brush"></img></td></tr>
+				<tr><td><img id="text" class="toolimg" src="../static/images/img/text.png" alt="Text" title="Text"></td></tr>
+				<tr><td><img id="sticker(change)" class="toolimg" src="../static/images/img/sticker.png" alt="Sticker" title="Sticker"></td></tr>
+			</table>
+			<table id="option2">
+				<tr class = 'setting marker'>
+					<td><canvas id="preview_brush" width="100" height="100" ></canvas></td>
+					<td>Color <input type="color" id="color_brush"></td>
+					<td>Brush Width <input type="range" id="lineWidth" max=12 min=1 step=1 value=6></td>
+				</tr>
+				<tr class = 'setting text'>
+					<td><canvas id="preview_text" width="110" height="100" ></canvas></td>
+					<td>Text <input type="text" id="word" value=""></td>
+					<td>Color <input type="color" id="color_text"></td>
+					<td>Size <input type="range" id="fontSize" max=12 min=1 step=1 value=6></td>	
+				</tr>
+				<tr class = 'setting sticker'>
+					<td><div id='sticker-holder'></div></td>
+				</tr>
+			</table>
+		</div>
+		<!-- Youtube Player -->
+		<div id="player"></div>
+		<!-- Canvas -->
+		<canvas id="myCanvas1" width="854" height="430" style="top:70px; left:140px;"></canvas>
+		<canvas id="myCanvas2" width="854" height="430" style="top:70px; left:140px;"></canvas>
+		<canvas id="myCanvas3" width="854" height="430" style="top:70px; left:140px;"></canvas>
+		<canvas id="myCanvas4" width="854" height="430" style="top:70px; left:140px;"></canvas>
+		<canvas id="myCanvas5" width="854" height="430" style="top:70px; left:140px;"></canvas>
+		<!-- Canvas Control -->
+		<div id="canvascontrol">
+			<span id="canvascontrol-label">Canvas</span>
+			<div class="onoffswitch">
+				<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="canvasonoffswitch" checked>
+				<label class="onoffswitch-label" for="canvasonoffswitch">
+					<span class="onoffswitch-inner"></span>
+					<span class="onoffswitch-switch"></span>
+				</label>
+			</div>
+		</div>
+	</div>
+</div>		
+
+
+<div id="right">
+	<!-- Members List -->
+	<div id="memberList">
+		<div id="members"></div>
+		<input id="invitebutton" type="button" value="Invite"></input>
+	</div>
+
+	<!-- Chat window -->
+	<div id="chatwindow">
+		<div id="textbox"></div>
+		<div id="inputbox">
+			<input id="sendbutton" type="button" value="Send"></input>
+			<textarea id="msgtextarea"></textarea>
+		</div>
+	</div>
+</div>
+<!-- Video conferencing -->
+<div id="videoChat">
+	<div id="draggable" class="ui-widget-content" style="display:none">
+		<div id="video-display" class='video-display'>
+        </div>
+        <div class="but-container">
+	 		<button id="facetime" class="btn btn-success" style="display:none">
+	            <span class="glyphicon glyphicon-facetime-video"></span>
+	        </button>
+	        <button id="earphone" class="btn btn-success" style="display:none">
+	        	<span class="glyphicon glyphicon-earphone"></span>
+	        </button>
+	        <button id="hangup" class="btn btn-danger">
+	            <span class="glyphicon glyphicon-ban-circle"></span>
+	        </button> 
+	        <button id="close" class="btn btn-warning" style='display:none'>Close</button>
+    	</div>
+	</div>
+	<!-- Local video -->
+	<div id="draggable-me" class="ui-widget-content" style="display:none">
+		<div id="video-display-me">
+        </div>
+        <button id="close" class="btn btn-warning">Close</button>
+	</div>
+</div>
+
+<!--Popup Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">請選擇你要開啟的模式</h4>
+        </div>
+        <div class="modal-body">
+          <button class='btn btn-primary' id='open-video' data-dismiss="modal">開啟視訊和語音通話</button>
+          <button class='btn btn-primary' id='open-audio' data-dismiss="modal">開啟語音通話</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+<script>
+	var videoID = '{{v}}';
+	var roomID = '{{r}}';
+	console.log(videoID);
+	if(videoID.length>11){
+		videoID = videoID.split(/^[0-9a-z_\-]/i);
+		videoID = videoID[0];
+		console.log(videoID);
+	}
+</script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+	if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		alert("Sorry! This website does NOT support mobile device.");
+		location.href = "/";
+	}
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="https://cdn.pubnub.com/pubnub-3.14.7.js"></script>
+<script src="../static/bootstrap/js/bootstrap.min.js"></script>
+<script src="../static/jquery-ui/jquery-ui.js"></script>
+<script src="../static/js/videosync.js"></script>
+<script src="../static/js/playersetup.js"></script>
+<script src="../static/js/cookie.js"></script>
+<script src="../static/sweetalert/sweetalert.min.js"></script>
+<script src="../static/js/room_login.js"></script>
+<script src="../static/js/govideoroom.js"></script>
+<script src="../static/js/chatwindow.js"></script>
+<script src='../static/js/canvas.js'></script>
+<script src='../static/js/display.js'></script>
+<script src="../static/sweetalert/sweetalert.min.js"></script>
+<script src='../static/js/memberlist.js'></script>
+<script src='../static/js/canvas_sync.js'></script>
+<script src='../static/js/webrtc.js'></script>
+<script src='../static/js/sound.js'></script>
+<script src='../static/js/phone.js'></script>
+{% endblock %}

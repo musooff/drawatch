@@ -1,0 +1,49 @@
+header{
+	width: 100%;
+	min-width: 1437px;
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+main{
+	width:1440px;
+}
+#left{
+	position: absolute;
+	left: 10px;
+	top:60px;
+	float: left;
+	padding: 20px 10px 15px 20px;
+}
+#right{
+	position: absolute;
+	left: 1030px;
+	top:60px;
+	display: table-cell;
+	padding: 20px 20px 15px 10px;
+}
+
+
+#memberList{
+	border: 1px solid #CCCCCC;
+	border-radius: 10px;
+	height: 50px;
+	margin: 0px 0px 8px 0px;
+}
+
+#members{
+	float: left;
+}
+.member{
+	border-radius: 50%;
+	margin: 10px 0px 10px 10px;
+}
+#invitebutton{
+	display: none;
+	float: right;
+	height: 30px;
+	line-height: 30px;
+	padding: 0px 10px;
+	margin: 10px;
+}
